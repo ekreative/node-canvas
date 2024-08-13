@@ -94,69 +94,73 @@ Context2d::Initialize(Napi::Env& env, Napi::Object& exports) {
   InstanceData* data = env.GetInstanceData<InstanceData>();
 
   Napi::Function ctor = DefineClass(env, "CanvasRenderingContext2D", {
-    InstanceMethod<&Context2d::DrawImage>("drawImage"),
-    InstanceMethod<&Context2d::PutImageData>("putImageData"),
-    InstanceMethod<&Context2d::GetImageData>("getImageData"),
-    InstanceMethod<&Context2d::CreateImageData>("createImageData"),
-    InstanceMethod<&Context2d::AddPage>("addPage"),
-    InstanceMethod<&Context2d::Save>("save"),
-    InstanceMethod<&Context2d::Restore>("restore"),
-    InstanceMethod<&Context2d::Rotate>("rotate"),
-    InstanceMethod<&Context2d::Translate>("translate"),
-    InstanceMethod<&Context2d::Transform>("transform"),
-    InstanceMethod<&Context2d::GetTransform>("getTransform"),
-    InstanceMethod<&Context2d::ResetTransform>("resetTransform"),
-    InstanceMethod<&Context2d::SetTransform>("setTransform"),
-    InstanceMethod<&Context2d::IsPointInPath>("isPointInPath"),
-    InstanceMethod<&Context2d::Scale>("scale"),
-    InstanceMethod<&Context2d::Clip>("clip"),
-    InstanceMethod<&Context2d::Fill>("fill"),
-    InstanceMethod<&Context2d::Stroke>("stroke"),
-    InstanceMethod<&Context2d::FillText>("fillText"),
-    InstanceMethod<&Context2d::StrokeText>("strokeText"),
-    InstanceMethod<&Context2d::FillRect>("fillRect"),
-    InstanceMethod<&Context2d::StrokeRect>("strokeRect"),
-    InstanceMethod<&Context2d::ClearRect>("clearRect"),
-    InstanceMethod<&Context2d::Rect>("rect"),
-    InstanceMethod<&Context2d::RoundRect>("roundRect"),
-    InstanceMethod<&Context2d::MeasureText>("measureText"),
-    InstanceMethod<&Context2d::MoveTo>("moveTo"),
-    InstanceMethod<&Context2d::LineTo>("lineTo"),
-    InstanceMethod<&Context2d::BezierCurveTo>("bezierCurveTo"),
-    InstanceMethod<&Context2d::QuadraticCurveTo>("quadraticCurveTo"),
-    InstanceMethod<&Context2d::BeginPath>("beginPath"),
-    InstanceMethod<&Context2d::ClosePath>("closePath"),
-    InstanceMethod<&Context2d::Arc>("arc"),
-    InstanceMethod<&Context2d::ArcTo>("arcTo"),
-    InstanceMethod<&Context2d::Ellipse>("ellipse"),
-    InstanceMethod<&Context2d::SetLineDash>("setLineDash"),
-    InstanceMethod<&Context2d::GetLineDash>("getLineDash"),
-    InstanceMethod<&Context2d::CreatePattern>("createPattern"),
-    InstanceMethod<&Context2d::CreateLinearGradient>("createLinearGradient"),
-    InstanceMethod<&Context2d::CreateRadialGradient>("createRadialGradient"),
-    InstanceAccessor<&Context2d::GetFormat>("pixelFormat"),
-    InstanceAccessor<&Context2d::GetPatternQuality, &Context2d::SetPatternQuality>("patternQuality"),
-    InstanceAccessor<&Context2d::GetImageSmoothingEnabled, &Context2d::SetImageSmoothingEnabled>("imageSmoothingEnabled"),
-    InstanceAccessor<&Context2d::GetGlobalCompositeOperation, &Context2d::SetGlobalCompositeOperation>("globalCompositeOperation"),
-    InstanceAccessor<&Context2d::GetGlobalAlpha, &Context2d::SetGlobalAlpha>("globalAlpha"),
-    InstanceAccessor<&Context2d::GetShadowColor, &Context2d::SetShadowColor>("shadowColor"),
-    InstanceAccessor<&Context2d::GetMiterLimit, &Context2d::SetMiterLimit>("miterLimit"),
-    InstanceAccessor<&Context2d::GetLineWidth, &Context2d::SetLineWidth>("lineWidth"),
-    InstanceAccessor<&Context2d::GetLineCap, &Context2d::SetLineCap>("lineCap"),
-    InstanceAccessor<&Context2d::GetLineJoin, &Context2d::SetLineJoin>("lineJoin"),
-    InstanceAccessor<&Context2d::GetLineDashOffset, &Context2d::SetLineDashOffset>("lineDashOffset"),
-    InstanceAccessor<&Context2d::GetShadowOffsetX, &Context2d::SetShadowOffsetX>("shadowOffsetX"),
-    InstanceAccessor<&Context2d::GetShadowOffsetY, &Context2d::SetShadowOffsetY>("shadowOffsetY"),
-    InstanceAccessor<&Context2d::GetShadowBlur, &Context2d::SetShadowBlur>("shadowBlur"),
-    InstanceAccessor<&Context2d::GetAntiAlias, &Context2d::SetAntiAlias>("antialias"),
-    InstanceAccessor<&Context2d::GetTextDrawingMode, &Context2d::SetTextDrawingMode>("textDrawingMode"),
-    InstanceAccessor<&Context2d::GetQuality, &Context2d::SetQuality>("quality"),
-    InstanceAccessor<&Context2d::GetCurrentTransform, &Context2d::SetCurrentTransform>("currentTransform"),
-    InstanceAccessor<&Context2d::GetFillStyle, &Context2d::SetFillStyle>("fillStyle"),
-    InstanceAccessor<&Context2d::GetStrokeStyle, &Context2d::SetStrokeStyle>("strokeStyle"),
-    InstanceAccessor<&Context2d::GetFont, &Context2d::SetFont>("font"),
-    InstanceAccessor<&Context2d::GetTextBaseline, &Context2d::SetTextBaseline>("textBaseline"),
-    InstanceAccessor<&Context2d::GetTextAlign, &Context2d::SetTextAlign>("textAlign")
+    InstanceMethod<&Context2d::DrawImage>("drawImage", napi_default_method),
+    InstanceMethod<&Context2d::PutImageData>("putImageData", napi_default_method),
+    InstanceMethod<&Context2d::GetImageData>("getImageData", napi_default_method),
+    InstanceMethod<&Context2d::CreateImageData>("createImageData", napi_default_method),
+    InstanceMethod<&Context2d::AddPage>("addPage", napi_default_method),
+    InstanceMethod<&Context2d::Save>("save", napi_default_method),
+    InstanceMethod<&Context2d::Restore>("restore", napi_default_method),
+    InstanceMethod<&Context2d::Rotate>("rotate", napi_default_method),
+    InstanceMethod<&Context2d::Translate>("translate", napi_default_method),
+    InstanceMethod<&Context2d::Transform>("transform", napi_default_method),
+    InstanceMethod<&Context2d::GetTransform>("getTransform", napi_default_method),
+    InstanceMethod<&Context2d::ResetTransform>("resetTransform", napi_default_method),
+    InstanceMethod<&Context2d::SetTransform>("setTransform", napi_default_method),
+    InstanceMethod<&Context2d::IsPointInPath>("isPointInPath", napi_default_method),
+    InstanceMethod<&Context2d::Scale>("scale", napi_default_method),
+    InstanceMethod<&Context2d::Clip>("clip", napi_default_method),
+    InstanceMethod<&Context2d::Fill>("fill", napi_default_method),
+    InstanceMethod<&Context2d::Stroke>("stroke", napi_default_method),
+    InstanceMethod<&Context2d::FillText>("fillText", napi_default_method),
+    InstanceMethod<&Context2d::StrokeText>("strokeText", napi_default_method),
+    InstanceMethod<&Context2d::FillRect>("fillRect", napi_default_method),
+    InstanceMethod<&Context2d::StrokeRect>("strokeRect", napi_default_method),
+    InstanceMethod<&Context2d::ClearRect>("clearRect", napi_default_method),
+    InstanceMethod<&Context2d::Rect>("rect", napi_default_method),
+    InstanceMethod<&Context2d::RoundRect>("roundRect", napi_default_method),
+    InstanceMethod<&Context2d::MeasureText>("measureText", napi_default_method),
+    InstanceMethod<&Context2d::MoveTo>("moveTo", napi_default_method),
+    InstanceMethod<&Context2d::LineTo>("lineTo", napi_default_method),
+    InstanceMethod<&Context2d::BezierCurveTo>("bezierCurveTo", napi_default_method),
+    InstanceMethod<&Context2d::QuadraticCurveTo>("quadraticCurveTo", napi_default_method),
+    InstanceMethod<&Context2d::BeginPath>("beginPath", napi_default_method),
+    InstanceMethod<&Context2d::ClosePath>("closePath", napi_default_method),
+    InstanceMethod<&Context2d::Arc>("arc", napi_default_method),
+    InstanceMethod<&Context2d::ArcTo>("arcTo", napi_default_method),
+    InstanceMethod<&Context2d::Ellipse>("ellipse", napi_default_method),
+    InstanceMethod<&Context2d::SetLineDash>("setLineDash", napi_default_method),
+    InstanceMethod<&Context2d::GetLineDash>("getLineDash", napi_default_method),
+    InstanceMethod<&Context2d::CreatePattern>("createPattern", napi_default_method),
+    InstanceMethod<&Context2d::CreateLinearGradient>("createLinearGradient", napi_default_method),
+    InstanceMethod<&Context2d::CreateRadialGradient>("createRadialGradient", napi_default_method),
+    #if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 16, 0)
+    InstanceMethod<&Context2d::BeginTag>("beginTag", napi_default_method),
+    InstanceMethod<&Context2d::CloseTag>("closeTag", napi_default_method),
+    #endif
+    InstanceAccessor<&Context2d::GetFormat>("pixelFormat", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetPatternQuality, &Context2d::SetPatternQuality>("patternQuality", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetImageSmoothingEnabled, &Context2d::SetImageSmoothingEnabled>("imageSmoothingEnabled", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetGlobalCompositeOperation, &Context2d::SetGlobalCompositeOperation>("globalCompositeOperation", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetGlobalAlpha, &Context2d::SetGlobalAlpha>("globalAlpha", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetShadowColor, &Context2d::SetShadowColor>("shadowColor", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetMiterLimit, &Context2d::SetMiterLimit>("miterLimit", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetLineWidth, &Context2d::SetLineWidth>("lineWidth", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetLineCap, &Context2d::SetLineCap>("lineCap", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetLineJoin, &Context2d::SetLineJoin>("lineJoin", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetLineDashOffset, &Context2d::SetLineDashOffset>("lineDashOffset", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetShadowOffsetX, &Context2d::SetShadowOffsetX>("shadowOffsetX", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetShadowOffsetY, &Context2d::SetShadowOffsetY>("shadowOffsetY", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetShadowBlur, &Context2d::SetShadowBlur>("shadowBlur", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetAntiAlias, &Context2d::SetAntiAlias>("antialias", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetTextDrawingMode, &Context2d::SetTextDrawingMode>("textDrawingMode", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetQuality, &Context2d::SetQuality>("quality", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetCurrentTransform, &Context2d::SetCurrentTransform>("currentTransform", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetFillStyle, &Context2d::SetFillStyle>("fillStyle", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetStrokeStyle, &Context2d::SetStrokeStyle>("strokeStyle", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetFont, &Context2d::SetFont>("font", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetTextBaseline, &Context2d::SetTextBaseline>("textBaseline", napi_default_jsproperty),
+    InstanceAccessor<&Context2d::GetTextAlign, &Context2d::SetTextAlign>("textAlign", napi_default_jsproperty)
   });
 
   exports.Set("CanvasRenderingContext2d", ctor);
@@ -418,7 +422,7 @@ Context2d::fill(bool preserve) {
         width = cairo_image_surface_get_width(patternSurface);
         height = y2 - y1;
       }
-      
+
       cairo_new_path(_context);
       cairo_rectangle(_context, 0, 0, width, height);
       cairo_clip(_context);
@@ -3354,3 +3358,77 @@ Context2d::Ellipse(const Napi::CallbackInfo& info) {
   }
   cairo_set_matrix(ctx, &save_matrix);
 }
+
+#if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 16, 0)
+
+/*
+ * Open and close a link tag
+ */
+
+void
+replaceAll( std::string &s, const std::string &search, const std::string &replace ) {
+    for( size_t pos = 0; ; pos += replace.length() ) {
+        // Locate the substring to replace
+        pos = s.find( search, pos );
+        if( pos == std::string::npos ) break;
+        // Replace by erasing and inserting
+        s.erase( pos, search.length() );
+        s.insert( pos, replace );
+    }
+}
+
+bool
+containsOnlyASCII(const std::string& str) {
+  for (auto c: str) {
+    if (static_cast<unsigned char>(c) > 127) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void
+Context2d::BeginTag(const Napi::CallbackInfo& info) {
+  if (info.Length() < 1 || !info[0].IsObject()) {
+    Napi::TypeError::New(env, "config must be an object").ThrowAsJavaScriptException();
+    return;
+  }
+
+  Napi::Object config = info[0].As<Napi::Object>();
+
+  Napi::String nameValue;
+  if (!config.Get("name").UnwrapTo(&nameValue)) {
+    Napi::TypeError::New(env, "config must have a name key").ThrowAsJavaScriptException();
+    return;
+  }
+  std::string name = nameValue.Utf8Value();
+  if (name != CAIRO_TAG_LINK) {
+    Napi::TypeError::New(env, "name must be 'Link'").ThrowAsJavaScriptException();
+    return;
+  }
+
+  Napi::String uriValue;
+  if (!config.Get("uri").UnwrapTo(&uriValue)) {
+    Napi::TypeError::New(env, "config must have a uri key").ThrowAsJavaScriptException();
+    return;
+  }
+  std::string uri = uriValue.Utf8Value();
+  if (!containsOnlyASCII(uri)) {
+    Napi::TypeError::New(env, "uri must be ascii only").ThrowAsJavaScriptException();
+    return;
+  }
+
+  replaceAll(uri, "'", "\\'");
+  std::string attrs = "uri='" + uri + "'";
+
+  cairo_t *ctx = context();
+  cairo_tag_begin(ctx, CAIRO_TAG_LINK, attrs.c_str());
+}
+
+void
+Context2d::CloseTag(const Napi::CallbackInfo& info) {
+  cairo_t *ctx = context();
+  cairo_tag_end(ctx, CAIRO_TAG_LINK);
+}
+
+#endif

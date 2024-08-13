@@ -694,6 +694,11 @@ describe('Canvas', function () {
       assert.equal('PNG', buf.slice(1, 4).toString())
     })
 
+    it('Canvas#toBuffer("image/png", {filters: PNG_ALL_FILTERS})', function () {
+      const buf = createCanvas(200, 200).toBuffer('image/png', { filters: Canvas.PNG_ALL_FILTERS })
+      assert.equal('PNG', buf.slice(1, 4).toString())
+    })
+
     it('Canvas#toBuffer("image/jpeg")', function () {
       const buf = createCanvas(200, 200).toBuffer('image/jpeg')
       assert.equal(buf[0], 0xff)
@@ -822,6 +827,11 @@ describe('Canvas', function () {
         canvas.toBuffer('raw') // (side-effect: flushes canvas)
         assertPixel(0xffff0000, 5, 0, 'first red pixel')
       })
+    })
+
+    it('Canvas#toBuffer("application/pdf")', function () {
+      const buf = createCanvas(200, 200, 'pdf').toBuffer('application/pdf')
+      assert.equal('PDF', buf.slice(1, 4).toString())
     })
   })
 
@@ -2067,5 +2077,29 @@ describe('Canvas', function () {
         ctx.restore()
       })
     }
+  })
+
+  describe('Context2d#beingTag()/endTag()', function () {
+    it ("generates a pdf", function () {
+      const canvas = createCanvas(20, 20, 'pdf')
+      const ctx = canvas.getContext('2d')
+      ctx.beginTag({ name: 'Link', uri: 'tes\'t' })
+      ctx.strokeText('hello', 0, 0)
+      ctx.closeTag()
+      const buf = canvas.toBuffer('application/pdf')
+      assert.equal('PDF', buf.slice(1, 4).toString())
+    })
+
+    it("must be a link", function () {
+      const canvas = createCanvas(20, 20, 'pdf')
+      const ctx = canvas.getContext('2d')
+      assert.throws(() => { ctx.beginTag({ name: 'other', uri: 'test' }) })
+    })
+
+    it("must be a ascii", function () {
+      const canvas = createCanvas(20, 20, 'pdf')
+      const ctx = canvas.getContext('2d')
+      assert.throws(() => { ctx.beginTag({ name: 'Link', uri: 'має бути ascii' }) })
+    })
   })
 })
