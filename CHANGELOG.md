@@ -31,6 +31,7 @@ This release notably changes to using N-API. 🎉
 * Remove unused private field `backend` in the `Backend` class. (#2229)
 * Add Node.js v20 to CI. (#2237)
 * Replaced `dtslint` with `tsd` (#2313)
+* Changed PNG consts to static properties of Canvas class
 ### Added
 * Added string tags to support class detection
 ### Fixed
@@ -43,6 +44,7 @@ This release notably changes to using N-API. 🎉
 * RGB functions should support real numbers now instead of just integers. (#2339)
 * Allow alternate or properly escaped quotes *within* font-family names
 * Fix TextMetrics type to include alphabeticBaseline, emHeightAscent, and emHeightDescent properties
+* Fix class properties should have defaults as standard js classes (#2390)
 
 2.11.2
 ==================
